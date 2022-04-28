@@ -6,7 +6,7 @@
 /*   By: nprimo <nprimo@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 17:44:00 by nprimo            #+#    #+#             */
-/*   Updated: 2022/04/28 12:37:57 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/04/28 12:50:06 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	get_token_list(char *input, t_list **token_list)
 	char	*new_token;
 	t_list	*new_token_el;
 
+	while (*input && is_space(*input))
+		input++;
 	new_token = get_next_token(input);
 	if (new_token)
 	{
@@ -39,18 +41,19 @@ static char	*get_next_token(char *input)
 	int		len;
 	char	*token;
 
-	while (*input && is_space(*input))
-		input++;
 	if (*input)
 	{
 		len = 0;
-		if (!is_metachar(*input))
+		if (is_metachar(*input))
 		{
-			while(input[len] && !is_space(input[len]))
+			while(input[len] && !is_space(input[len]) && is_metachar(input[len]))
 				len++;
 		}
-		while(input[len] && !is_space(input[len]) && !is_metachar(input[len]))
-			len++;
+		else
+		{
+			while (input[len] && !is_space(input[len]) && !is_metachar(input[len]))
+				len++;
+		}
 		token = ft_strndup(input, len);
 		if (token)
 			return (token);
