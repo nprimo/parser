@@ -6,7 +6,7 @@
 /*   By: nprimo <nprimo@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 17:44:00 by nprimo            #+#    #+#             */
-/*   Updated: 2022/04/28 11:59:58 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/04/28 12:27:21 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_list	*get_token_list(char *input, t_list **token_list)
 	char	*new_token;
 	t_list	*new_token_el;
 
-	token_list = NULL;
 	new_token = get_next_token(input);
 	if (new_token)
 	{
