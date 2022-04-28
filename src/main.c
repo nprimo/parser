@@ -6,7 +6,7 @@
 /*   By: nprimo <nprimo@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 16:24:22 by nprimo            #+#    #+#             */
-/*   Updated: 2022/04/28 11:56:56 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/04/28 12:36:43 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ int	main(void)
 	printf("INPUT: %s\n", input);
 	add_history(input);
 	token_list = NULL;
-	token_list = get_token_list(input, &token_list);
+	get_token_list(input, &token_list);
+	while(token_list->next)
+	{
+		printf("%s ", token_list->content);
+		token_list = token_list->next;		
+	}
 	free(input);
 	return (0);
 }
