@@ -6,7 +6,7 @@
 /*   By: nprimo <nprimo@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 17:44:00 by nprimo            #+#    #+#             */
-/*   Updated: 2022/04/28 12:27:21 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/04/28 12:37:57 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	is_space(char c);
 static char	*get_next_token(char *input);
 
 
-t_list	*get_token_list(char *input, t_list **token_list)
+void	get_token_list(char *input, t_list **token_list)
 {
 	char	*new_token;
 	t_list	*new_token_el;
@@ -25,13 +25,13 @@ t_list	*get_token_list(char *input, t_list **token_list)
 	new_token = get_next_token(input);
 	if (new_token)
 	{
-		new_token_el = ft_lstnew(&new_token);
+		new_token_el = ft_lstnew(new_token);
 		if (new_token_el)
 			ft_lstadd_back(token_list, new_token_el);
 		input += ft_strlen(new_token);
 		return (get_token_list(input, token_list));
 	}
-	return (NULL);
+	return ;
 }
 
 static char	*get_next_token(char *input)

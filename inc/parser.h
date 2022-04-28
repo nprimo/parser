@@ -6,7 +6,7 @@
 /*   By: nprimo <nprimo@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 16:24:43 by nprimo            #+#    #+#             */
-/*   Updated: 2022/04/28 12:17:16 by nprimo           ###   ########.fr       */
+/*   Updated: 2022/04/28 12:36:02 by nprimo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@
 # define METACHAR_SET "|&;()<>"
 # define SPACE_SET " \n\t"
 
-t_list	*get_token_list(char *input, t_list **token_list);
+void	get_token_list(char *input, t_list **token_list);
 
 #endif
